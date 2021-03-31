@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FL ChucKton Live</title>
+    <link rel='stylesheet' type='text/css' href='./live.css' media='screen'>
+</head>
+
+<body>
+    <div class='title'>
+        FL CHUCKTON <span class='orange'>LIVE</span>
+    </div>
+
+    <div class='tab-link-container'>
+        <button class='tab-link' id='default-tab' onclick='changeTab(event, "generators")'>
+            Generators
+        </button>
+        <button class='tab-link' onclick='changeTab(event, "sequences")'>
+            Sequences
+        </button>
+    </div>
+
+    <div class='tab-content' id='generators'>
+        <div class='synth' id='synth0'>
+            <h2>Synthesizer 0</h2>
+            <div>Volume</div>
+            <input type='range' id='synth0-volume' min='0' max='1' step='.01' onchange='updateChuck()'>
+            <div>Waveform</div>
+            <input type='radio' id='synth0-sine' name='synth0-waveform' value='0' onchange='updateChuck()' checked>
+            <label for='synth0-sine'>Sine</label>
+            <input type='radio' id='synth0-triangle' name='synth0-waveform' value='1' onchange='updateChuck()'>
+            <label for='synth0-triangle'>Triangle</label>
+            <input type='radio' id='synth0-square' name='synth0-waveform' value='2' onchange='updateChuck()'>
+            <label for='synth0-square'>Square</label>
+            <input type='radio' id='synth0-saw' name='synth0-waveform' value='3' onchange='updateChuck()'>
+            <label for='synth0-saw'>Saw</label>
+            <input type='radio' id='synth0-noise' name='synth0-waveform' value='4' onchange='updateChuck()'>
+            <label for='synth0-noise'>Noise</label>
+            <div>ADSR - attack / decay / sustain / release</div>
+            <input type='range' id='synth0-attack' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth0-decay' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth0-sustain' min='0' max='1' step='0.01' onchange='updateChuck()'>
+            <input type='range' id='synth0-release' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <div>Filter - frequency / resonance</div>
+            <input type='radio' id='synth0-lpf' name='synth0-filter' value='0' onchange='updateChuck()' checked>
+            <label for='synth0-lpf'>LPF</label>
+            <input type='radio' id='synth0-hpf' name='synth0-filter' value='1' onchange='updateChuck()'>
+            <label for='synth0-hpf'>HPF</label>
+            <input type='radio' id='synth0-bpf' name='synth0-filter' value='2' onchange='updateChuck()'>
+            <label for='synth0-bpf'>BPF</label>
+            <div></div>
+            <input type='range' id='synth0-filter-freq' min='0' max='20000' value='20000' onchange='updateChuck()'>
+            <input type='range' id='synth0-filter-q' min='0' max='1' step='0.01' value='1' onchange='updateChuck()'>
+            <div>Echo - delay / max / mix</div>
+            <input type='range' id='synth0-echo-delay' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth0-echo-max' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth0-echo-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+            <div>Reverb - mix</div>
+            <input type='radio' id='synth0-jcrev' name='synth0-reverb' value='0' onchange='updateChuck()' checked>
+            <label for='synth0-jcrev'>JCRev</label>
+            <input type='radio' id='synth0-nrev' name='synth0-reverb' value='1' onchange='updateChuck()'>
+            <label for='synth0-nrev'>NRev</label>
+            <input type='radio' id='synth0-prcrev' name='synth0-reverb' value='2' onchange='updateChuck()'>
+            <label for='synth0-prcrev'>PRCRev</label>
+            <div></div>
+            <input type='range' id='synth0-reverb-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+        </div>
+        <div class='synth' id='synth1'>
+            <h2>Synthesizer 1</h2>
+            <div>Volume</div>
+            <input type='range' id='synth1-volume' min='0' max='1' step='.01' onchange='updateChuck()'>
+            <div>Waveform</div>
+            <input type='radio' id='synth1-sine' name='synth1-waveform' value='0' onchange='updateChuck()' checked>
+            <label for='synth1-sine'>Sine</label>
+            <input type='radio' id='synth1-triangle' name='synth1-waveform' value='1' onchange='updateChuck()'>
+            <label for='synth1-triangle'>Triangle</label>
+            <input type='radio' id='synth1-square' name='synth1-waveform' value='2' onchange='updateChuck()'>
+            <label for='synth1-square'>Square</label>
+            <input type='radio' id='synth1-saw' name='synth1-waveform' value='3' onchange='updateChuck()'>
+            <label for='synth1-saw'>Saw</label>
+            <input type='radio' id='synth1-noise' name='synth1-waveform' value='4' onchange='updateChuck()'>
+            <label for='synth1-noise'>Noise</label>
+            <div>ADSR - attack / decay / sustain / release</div>
+            <input type='range' id='synth1-attack' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth1-decay' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth1-sustain' min='0' max='1' step='0.01' onchange='updateChuck()'>
+            <input type='range' id='synth1-release' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <div>Filter - frequency / resonance</div>
+            <input type='radio' id='synth1-lpf' name='synth1-filter' value='0' onchange='updateChuck()' checked>
+            <label for='synth1-lpf'>LPF</label>
+            <input type='radio' id='synth1-hpf' name='synth1-filter' value='1' onchange='updateChuck()'>
+            <label for='synth1-hpf'>HPF</label>
+            <input type='radio' id='synth1-bpf' name='synth1-filter' value='2' onchange='updateChuck()'>
+            <label for='synth1-bpf'>BPF</label>
+            <div></div>
+            <input type='range' id='synth1-filter-freq' min='0' max='20000' value='20000' onchange='updateChuck()'>
+            <input type='range' id='synth1-filter-q' min='0' max='1' step='0.01' value='1' onchange='updateChuck()'>
+            <div>Echo - delay / max / mix</div>
+            <input type='range' id='synth1-echo-delay' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth1-echo-max' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth1-echo-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+            <div>Reverb - mix</div>
+            <input type='radio' id='synth1-jcrev' name='synth1-reverb' value='0' onchange='updateChuck()' checked>
+            <label for='synth1-jcrev'>JCRev</label>
+            <input type='radio' id='synth1-nrev' name='synth1-reverb' value='1' onchange='updateChuck()'>
+            <label for='synth1-nrev'>NRev</label>
+            <input type='radio' id='synth1-prcrev' name='synth1-reverb' value='2' onchange='updateChuck()'>
+            <label for='synth1-prcrev'>PRCRev</label>
+            <div></div>
+            <input type='range' id='synth1-reverb-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+        </div>
+        <div class='synth' id='synth2'>
+            <h2>Synthesizer 2</h2>
+            <div>Volume</div>
+            <input type='range' id='synth2-volume' min='0' max='1' step='.01' onchange='updateChuck()'>
+            <div>Waveform</div>
+            <input type='radio' id='synth2-sine' name='synth2-waveform' value='0' onchange='updateChuck()' checked>
+            <label for='synth2-sine'>Sine</label>
+            <input type='radio' id='synth2-triangle' name='synth2-waveform' value='1' onchange='updateChuck()'>
+            <label for='synth2-triangle'>Triangle</label>
+            <input type='radio' id='synth2-square' name='synth2-waveform' value='2' onchange='updateChuck()'>
+            <label for='synth2-square'>Square</label>
+            <input type='radio' id='synth2-saw' name='synth2-waveform' value='3' onchange='updateChuck()'>
+            <label for='synth2-saw'>Saw</label>
+            <input type='radio' id='synth2-noise' name='synth2-waveform' value='4' onchange='updateChuck()'>
+            <label for='synth2-noise'>Noise</label>
+            <div>ADSR - attack / decay / sustain / release</div>
+            <input type='range' id='synth2-attack' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth2-decay' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth2-sustain' min='0' max='1' step='0.01' onchange='updateChuck()'>
+            <input type='range' id='synth2-release' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <div>Filter - frequency / resonance</div>
+            <input type='radio' id='synth2-lpf' name='synth2-filter' value='0' onchange='updateChuck()' checked>
+            <label for='synth2-lpf'>LPF</label>
+            <input type='radio' id='synth2-hpf' name='synth2-filter' value='1' onchange='updateChuck()'>
+            <label for='synth2-hpf'>HPF</label>
+            <input type='radio' id='synth2-bpf' name='synth2-filter' value='2' onchange='updateChuck()'>
+            <label for='synth2-bpf'>BPF</label>
+            <div></div>
+            <input type='range' id='synth2-filter-freq' min='0' max='20000' value='20000' onchange='updateChuck()'>
+            <input type='range' id='synth2-filter-q' min='0' max='1' step='0.01' value='1' onchange='updateChuck()'>
+            <div>Echo - delay / max / mix</div>
+            <input type='range' id='synth2-echo-delay' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth2-echo-max' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth2-echo-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+            <div>Reverb - mix</div>
+            <input type='radio' id='synth2-jcrev' name='synth2-reverb' value='0' onchange='updateChuck()' checked>
+            <label for='synth2-jcrev'>JCRev</label>
+            <input type='radio' id='synth2-nrev' name='synth2-reverb' value='1' onchange='updateChuck()'>
+            <label for='synth2-nrev'>NRev</label>
+            <input type='radio' id='synth2-prcrev' name='synth2-reverb' value='2' onchange='updateChuck()'>
+            <label for='synth2-prcrev'>PRCRev</label>
+            <div></div>
+            <input type='range' id='synth2-reverb-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+        </div>
+        <div class='synth' id='synth3'>
+            <h2>Synthesizer 3</h2>
+            <div>Volume</div>
+            <input type='range' id='synth3-volume' min='0' max='1' step='.01' onchange='updateChuck()'>
+            <div>Waveform</div>
+            <input type='radio' id='synth3-sine' name='synth3-waveform' value='0' onchange='updateChuck()' checked>
+            <label for='synth3-sine'>Sine</label>
+            <input type='radio' id='synth3-triangle' name='synth3-waveform' value='1' onchange='updateChuck()'>
+            <label for='synth3-triangle'>Triangle</label>
+            <input type='radio' id='synth3-square' name='synth3-waveform' value='2' onchange='updateChuck()'>
+            <label for='synth3-square'>Square</label>
+            <input type='radio' id='synth3-saw' name='synth3-waveform' value='3' onchange='updateChuck()'>
+            <label for='synth3-saw'>Saw</label>
+            <input type='radio' id='synth3-noise' name='synth3-waveform' value='4' onchange='updateChuck()'>
+            <label for='synth3-noise'>Noise</label>
+            <div>ADSR - attack / decay / sustain / release</div>
+            <input type='range' id='synth3-attack' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth3-decay' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <input type='range' id='synth3-sustain' min='0' max='1' step='0.01' onchange='updateChuck()'>
+            <input type='range' id='synth3-release' min='0' max='1000' value='0' onchange='updateChuck()'>
+            <div>Filter - frequency / resonance</div>
+            <input type='radio' id='synth3-lpf' name='synth3-filter' value='0' onchange='updateChuck()' checked>
+            <label for='synth3-lpf'>LPF</label>
+            <input type='radio' id='synth3-hpf' name='synth3-filter' value='1' onchange='updateChuck()'>
+            <label for='synth3-hpf'>HPF</label>
+            <input type='radio' id='synth3-bpf' name='synth3-filter' value='2' onchange='updateChuck()'>
+            <label for='synth3-bpf'>BPF</label>
+            <div></div>
+            <input type='range' id='synth3-filter-freq' min='0' max='20000' value='20000' onchange='updateChuck()'>
+            <input type='range' id='synth3-filter-q' min='0' max='1' step='0.01' value='1' onchange='updateChuck()'>
+            <div>Echo - delay / max / mix</div>
+            <input type='range' id='synth3-echo-delay' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth3-echo-max' min='0' max='1000' onchange='updateChuck()'>
+            <input type='range' id='synth3-echo-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+            <div>Reverb - mix</div>
+            <input type='radio' id='synth3-jcrev' name='synth3-reverb' value='0' onchange='updateChuck()' checked>
+            <label for='synth3-jcrev'>JCRev</label>
+            <input type='radio' id='synth3-nrev' name='synth3-reverb' value='1' onchange='updateChuck()'>
+            <label for='synth3-nrev'>NRev</label>
+            <input type='radio' id='synth3-prcrev' name='synth3-reverb' value='2' onchange='updateChuck()'>
+            <label for='synth3-prcrev'>PRCRev</label>
+            <div></div>
+            <input type='range' id='synth3-reverb-mix' min='0' max='1' step='0.01' value='0' onchange='updateChuck()'>
+        </div>
+    </div>
+
+    <div class='tab-content' id='sequences'>
+        <div class='sequence' id='sequence-synth0'>
+            <h2>Synthesizer 0</h2>
+            <button class='sequence-octave-change' onclick='octaveUp("sequence-synth0")'>
+                Octave up
+            </button>
+            <button class='sequence-octave-change' onclick='octaveDown("sequence-synth0")'>
+                Octave down
+            </button>
+        </div>
+        <div class='sequence' id='sequence-synth1'>
+            <h2>Synthesizer 1</h2>
+            <button class='sequence-octave-change' onclick='octaveUp("sequence-synth1")'>
+                Octave up
+            </button>
+            <button class='sequence-octave-change' onclick='octaveDown("sequence-synth1")'>
+                Octave down
+            </button>
+        </div>
+        <div class='sequence' id='sequence-synth2'>
+            <h2>Synthesizer 2</h2>
+            <button class='sequence-octave-change' onclick='octaveUp("sequence-synth2")'>
+                Octave up
+            </button>
+            <button class='sequence-octave-change' onclick='octaveDown("sequence-synth2")'>
+                Octave down
+            </button>
+        </div>
+        <div class='sequence' id='sequence-synth3'>
+            <h2>Synthesizer 3</h2>
+            <button class='sequence-octave-change' onclick='octaveUp("sequence-synth3")'>
+                Octave up
+            </button>
+            <button class='sequence-octave-change' onclick='octaveDown("sequence-synth3")'>
+                Octave down
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./js/defer.js"></script>
+    <script>
+        const serverFilesToPreload = [{
+            serverFilename: './live.ck',
+            virtualFilename: 'live.ck'
+        }];
+    </script>
+    <script type="text/javascript" src="./js/chuckscriptwebaudio.js"></script>
+    <script>
+        (async function () {
+            await preloadFilenames(serverFilesToPreload);
+            await startChuck();
+            await theChuckReady;
+            await theChuck.runFile('live.ck');
+            updateChuck();
+            theChuck.broadcastEvent('startPlayback');
+            theChuck.startListeningForEvent('step', sequencerStep);
+        })();
+    </script>
+    <script src='./live.js'></script>
+</body>
+
+</html>
